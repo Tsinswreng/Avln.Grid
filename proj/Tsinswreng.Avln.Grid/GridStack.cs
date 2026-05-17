@@ -75,7 +75,7 @@ public partial class GridStack
 	}
 }
 
-public static class ExtnAutoGrid {
+public static class ExtnGridStack {
 	extension(GridStack z){
 		public ColumnDefinitions ColDefs{
 			get{
