@@ -93,4 +93,22 @@ public static class ExtnGridStack {
 			}
 		}
 	}
+	
+	extension<TSelf>(TSelf z)
+		where TSelf : GridStack
+	{
+		public TSelf SetRowDefs(
+			params IEnumerable<RowDefinition> RowDefs
+		){
+			z.Grid.RowDefinitions = [..RowDefs];
+			return z;
+		}
+
+		public TSelf SetColDefs(
+			params IEnumerable<ColumnDefinition> ColDefs
+		){
+			z.Grid.ColumnDefinitions= [..ColDefs];
+			return z;
+		}
+	}
 }
