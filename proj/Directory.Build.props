@@ -5,20 +5,18 @@
 		<Nullable>enable</Nullable>
 		<PublishAot>true</PublishAot>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<!-- Avalonia 的遙測目標 AvaloniaStats 會寫 %LOCALAPPDATA%\AvaloniaUI\BuildServices\buildtasks.log；
+			 該路徑不可寫時 build 會在 CoreCompile 之前以 MSB4018 失敗。
+			 清空本屬性即可讓該目標不執行。 -->
+		<UsedAvaloniaProducts></UsedAvaloniaProducts>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Tsinswreng.CsCore" Version="0.0.1-alpha" />
 		<Compile Include="../TypeAlias.cs" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Avalonia" Version="11.2.1" />
-		<!-- <PackageReference Include="Avalonia.Themes.Fluent" /> -->
-		<!-- <PackageReference Include="Avalonia.Fonts.Inter" /> -->
-		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-		<PackageReference Include="Avalonia.Diagnostics" Version="11.2.1">
-			<IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
-			<PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
-		</PackageReference>
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2"/>
+		<!-- 與工作區其餘專案同版；原本的 11.2.1 與引用方的 12.1.1 不相容。 -->
+		<PackageReference Include="Avalonia" Version="12.1.1" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
 	</ItemGroup>
 </Project>

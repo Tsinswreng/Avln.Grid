@@ -10,6 +10,10 @@
 		<Description>Lightweight helpers around Avalonia Grid, including sequential row or column stacking.</Description>
 		<PackageTags>Avalonia;Grid;Layout;UI</PackageTags>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<!-- 必須寫在專案檔裡：Avalonia 套件的 props 在 Directory.Build.props 之後才設這個屬性，
+			 寫在 Directory.Build.props 會被它蓋掉，遙測目標於是照跑，寫 buildtasks.log 被拒時
+			 整個建置以 MSB4018 中止。清空本屬性即不執行該目標。 -->
+		<UsedAvaloniaProducts></UsedAvaloniaProducts>
 	</PropertyGroup>
 
 	<ItemGroup>
